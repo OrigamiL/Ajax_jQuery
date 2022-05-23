@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax get请求</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("hellobutton").onclick = function () {
+            //发送ajax get请求
+            //1.创建ajax核心对象XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            //2.注册回调函数
+            //这是一个回调函数onreadystatechange 这个函数在XMLHttpRequest对象的readyState状态值发生改变的时候被调用
+            xhr.onreadystatechange = function (){
+                //这里的回调函数会被调用多次  0->1   1->2   2->3   3->4
+                console.log(xhr.readyState)
+                if(this.readyState===4){
+                    console.log("响应结束")
+                    //响应结束一般有一个HTTP状态码
+                    //200 成功  404 资源找不到 500 内部服务器错误
+                    console.log(this.status) //http状态码
+                    if(this.status===404){
+                        alert("对不起，资源不存在")
+                    } else if(this.status===500){
+                        alert("内部服务器错误")
+                    } else if(this.status===200){
+                        alert("响应成功")
+                        //响应成功，则通过XMLHttpRequest获取响应的数据
+                        //alert(this.responseText)
+                        document.getElementById("mydiv").innerHTML =this.responseText;
+                    }
+                }
+            }
+            //3.开启通道
+            //XMLHTTPRequest对象的open方法
+            //open(method,url,async,user,psw)
+            xhr.open("GET","/ajax/ajaxRequest1",true);
+            //4.发送请求
+            xhr.send();
+        }
+    }
+</script>
+<div id="mydiv">
+</div>
+<input type="button" value="hello ajax" id="hellobutton">
+</body>
+</html>

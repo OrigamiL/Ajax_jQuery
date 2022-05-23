@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function sayhello(){
+        alert("hello")
+    }
+</script>
+
+<input type="button" value="hello" onclick="sayhello()">
+<input id="button" type="button" value="Js代码绑定按钮">
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var button = document.getElementById("button");
+        button.onclick = function () {
+            alert(this.type)
+        }
+    }
+</script>
+
+
+<input type="button" value="nihao" id="hello3">
+<script type="text/javascript">
+    document.getElementById("hello3").onclick = function (){
+        alert("nihao")
+    }
+</script>
+</html>
