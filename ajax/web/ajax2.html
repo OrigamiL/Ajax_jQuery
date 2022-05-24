@@ -22,12 +22,16 @@
            /* xhr.onload = function () {
                 console.log(this.readyState)
             }*/
-            xhr.open("GET","/ajax/ajaxRequest1",true);
+            var date = new Date()
+            xhr.open("GET","/ajax/ajaxRequest2?"+document.getElementById("input").name+"="+document.getElementById("input").value+"&t="+date.getTime(),true);
             xhr.send();
         }
     }
 
 </script>
+<form>
+usercode:<input type="text" name="usercode" id="input" />
+</form>
 <button id="mybutton" value="click">点击发送请求</button>
 <span id="myspan"></span>
 </body>
