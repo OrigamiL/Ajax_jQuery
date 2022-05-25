@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示学生信息</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("btn").onclick = function () {
+            var jsonStr
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        jsonStr = this.responseText;
+                        var jsonStudentArray = JSON.parse(jsonStr);
+                        var tbodyHtml = "";
+                        // alert(jsonStudentArray.length)
+                        for (var i = 0; i < jsonStudentArray.length; i++) {
+                            tbodyHtml += "<tr><td>" + (i + 1) + "</td><td>" + jsonStudentArray[i].name +
+                                "</td><td>" + jsonStudentArray[i].age +
+                                "</td><td>" + jsonStudentArray[i].address + "</td></tr>"
+                        }
+                        // console.log(tbodyHtml)
+                        document.getElementById("stubody").innerHTML = tbodyHtml
+                    } else {
+                        alert(this.status)
+                    }
+                }
+            }
+            xhr.open("GET", "/ajax/ajaxRequest5", true);
+            xhr.send();
+        }
+    }
+</script>
+<button id="btn">显示学生信息</button>
+<table width="50%" align="center" border="1px">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody id="stubody">
+    <!--    <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>14</td>
+            <td>北京</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>23</td>
+            <td>上海</td>
+        </tr>-->
+    </tbody>
+</table>
+</body>
+</html>

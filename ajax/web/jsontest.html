@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json test</title>
+</head>
+<body>
+<script type="text/javascript">
+  /*
+    在javascript中如何创建一个json对象
+    var jsonobj = {
+        "属性名" ： 属性值，
+        "属性名" ： 属性值
+       }
+  * */
+  var user = {
+      "usercode": 111,
+      "username": "zhangsan",
+      "age": 16,
+      "sex": false,
+      "aihao": ["抽烟", "喝酒", "烫头"],
+      "address": {
+          "city": "北京",
+          "street": "海淀区"
+      }
+  }
+
+  console.log(user.age)
+  console.log(user.sex?"男":"女")
+  console.log(user["age"])
+  console.log(user["sex"]?"男":"女")
+
+  for (var i = 0; i < user.aihao.length; i++) {
+      console.log(user.aihao[i])
+  }
+  console.log(user.address.city)
+</script>
+
+</body>
+</html>

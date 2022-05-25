@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json test2</title>
+</head>
+<body>
+<!--json格式字符串如何转化为json对象-->
+<script type="text/javascript">
+    var fromJavaServerJsonStr = "{\"usercode\":111,\"username\":\"jack\"}"
+    /*
+            1.使用eval函数
+            2.使用json的方法parse
+    * */
+    var jsonObj = JSON.parse(fromJavaServerJsonStr)
+    console.log(jsonObj.usercode+":"+jsonObj.username)
+    var jsonObj2 = eval("("+fromJavaServerJsonStr+")")
+    console.log(jsonObj2.usercode)
+</script>
+</body>
+</html>
