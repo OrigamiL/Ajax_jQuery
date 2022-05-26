@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手动封装JS库jQuery</title>
+</head>
+<body>
+<script type="text/javascript">
+    function jQuery(selector) {
+        if (typeof selector === "string") {
+            if (selector.charAt(0) === "#") {
+                //return document.getElementById(selector.slice(1))
+                //升级成全局变量
+                //domObj = document.getElementById(selector.slice(1))
+                //return new jQuery(selector.slice(1))
+                //升级成全局变量
+                domObj = document.getElementById(selector.slice(1));
+                return new jQuery();
+            }
+        } else if (typeof selector === "function") {
+            window.onload = selector
+        }
+        //定义一个html方法 代替document.getElementById()
+        this.html = function (htmlText) {
+            //  console.log("s:"+selector)
+            //document.getElementById(selector).innerHTML = htmlText
+            domObj.innerHTML = htmlText
+        }
+        this.click = function (func) {
+            //document.getElementById(selector).onclick = func
+            domObj.onclick = func
+        }
+        this.foucs = function (func) {
+            domObj.onfocus = func
+        }
+        this.val = function (value) {
+            if (value === undefined) {
+                return domObj.value
+            } else{
+                return domObj.value = value
+            }
+        }
+
+    }
+
+    $ = jQuery
+
+    //$(function(){})
+    // 只要你写上以上代码，就表示页面加载完毕之后，执行里面的函数
+    console.log($("#btn"))
+
+    $(function () {
+        $("#btn").click(function () {
+            $("#div").html("<font color='red'>~学习封装jQuery！</font>")
+           // var username = document.getElementById("username").value
+           // alert(username)
+            var username = $("#username").val();
+            console.log(username)
+        })
+    })
+    /*    $(function () {
+            $("#btn").onclick = function () {
+                $("#div").innerHTML = "<font color='red'>~学习封装jQuery！</font>"
+            }
+        })*/
+
+    /*    window.onload = function () {
+            $("#btn").onclick = function () {
+                $("#div").innerHTML = <font color="red">学习封装jQuery！</font>
+            }
+        }*/
+</script>
+用户名：<input type="text" id="username"/><br>
+<button id="btn">显示信息</button>
+<div id="div"></div>
+</body>
+</html>

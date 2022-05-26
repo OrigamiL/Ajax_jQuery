@@ -13,9 +13,9 @@
     }
 
   </script>
-  <a href="/old/request">超链接</a>
+  <a href=${pageContext.request.contextPath}"/request">超链接</a>
   <br>
-  <form action="/old/request">
+  <form action=${pageContext.request.contextPath}"/request">
     <input type="submit" value="提交"/>
   </form>
   <input type="button" onclick="sendRequest()" value="JS代码发送请求" />

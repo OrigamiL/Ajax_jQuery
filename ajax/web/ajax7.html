@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试同步异步</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("btn1").onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(this.readyState === 4) {
+                    if(this.status ===200) {
+                        document.getElementById("div1").innerText = this.responseText;
+                    }else {
+                        alert(this.status);
+                    }
+                }
+            }
+            xhr.open("GET","/ajax/ajaxRequest7",true);
+            xhr.send();
+        }
+        document.getElementById("btn2").onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(this.readyState === 4) {
+                    if(this.status ===200) {
+                        document.getElementById("div2").innerText = this.responseText;
+                    }else {
+                        alert(this.status);
+                    }
+                }
+            }
+            xhr.open("GET","/ajax/ajaxRequest8",false);
+            xhr.send();
+        }
+    }
+</script>
+<button id="btn1">AJAX请求1</button><br>
+<div id="div1"></div><br>
+<button id="btn2">AJAX请求2</button><br>
+<div id="div2"></div><br>
+</body>
+</html>
