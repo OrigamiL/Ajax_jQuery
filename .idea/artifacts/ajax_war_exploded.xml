@@ -6,6 +6,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ajax" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../dev/fastjson-1.2.79.jar" />
+          <element id="library" level="project" name="lib" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="ajax/web/Web" />
     </root>
