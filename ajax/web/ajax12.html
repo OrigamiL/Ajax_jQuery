@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动</title>
+</head>
+<body>
+<!--引入jQuery库-->
+<script type="text/javascript" src="js/jQuery-1.0.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type : "GET",
+            url : "/ajax/ajaxRequest12/getProvince",
+            async : true,
+            data : null,
+            success : function (json) {
+                var html = "<option>--请选择省份</option>"
+                for (var i = 0; i < json.length; i++) {
+                    html += "<option value='"+json[i].code+"'>"+json[i].name+"</option>"
+                }
+                $("#province").html(html)
+            }
+        })
+        $("#province").change(function () {
+            $.ajax({
+                type : "POST",
+                url : "/ajax/ajaxRequest12/getCity",
+                async : true,
+                data : "province="+$("#province").val(),
+                success : function (json) {
+                    var html = "<option>--请选择市区</option>"
+                    for (var i = 0; i < json.length; i++) {
+                        html += "<option value=\""+json[i].code+"\">"+json[i].name+"</option>"
+                    }
+                    $("#city").html(html)
+                }
+            })
+        })
+    })
+</script>
+<select id="province">
+    <option>--请选择省份</option>
+    <option value="001">山东省</option>
+    <option value="002">浙江省</option>
+</select>
+<select id="city">
+    <option>--请选择市区</option>
+</select>
+</body>
+</html>

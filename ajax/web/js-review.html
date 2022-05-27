@@ -24,6 +24,7 @@
     // new User() 这样调用 就是调用该类的构造方法 创建对象 并且在堆中分配空间
     var user = new User("zhangsan","1234")
     user.doSome()
+    User.doOther()
     //后期如果想给某一个类拓展方法，可以使用prototype属性
     User.prototype.getUsername = function (){
         return this.username

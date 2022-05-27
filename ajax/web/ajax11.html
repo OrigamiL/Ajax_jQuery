@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将AJAX代码进行封装 封装到jQuery库中</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jQuery-1.0.0.js"></script>
+<script type="text/javascript">
+  /*  $(function () {
+        $("#btn").click(function () {
+            //$.ajax("POST","/ajax/ajaxRequest11",true,"username="+document.getElementById("username").value);
+            //$.ajax("GET","/ajax/ajaxRequest11?username=zhang",false)
+            $.ajax({
+                type    : "POST",
+                url     : "/ajax/ajaxRequest11",
+                async   : true,
+                data    : "username=" + $("#username").val(),
+                success : function (json) {
+                    $("#mydiv").html(json.username)
+                }
+            })
+        })
+    })*/
+  $(function () {
+      $("#btn").click(function () {
+          $.ajax({
+              type : "GET",
+              url : "/ajax/ajaxRequest11",
+              async : true,
+              data : "username="+$("#username").val(),
+              success : function (json) {
+                  $("#mydiv").html(json.username)
+              }
+          })
+      })
+  })
+    /*window.onload = function () {
+        document.getElementById("btn").onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        //我们的工具类封装先封装json
+                        var jsonObj = JSON.parse(this.responseText);
+                        document.getElementById("mydiv").innerHTML = jsonObj.username
+                    } else {
+                        alert(this.status)
+                    }
+                }
+            }
+            xhr.open("POST", "/ajax/ajaxRequest11", true)
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+            xhr.send("username=" + document.getElementById("username").value)
+        }
+    }*/
+</script>
+<button id="btn">发送AJAX请求</button>
+用户名：<input type="text" id="username"/>
+<div id="mydiv"></div>
+</body>
+</html>

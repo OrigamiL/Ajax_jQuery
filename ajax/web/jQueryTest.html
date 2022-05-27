@@ -6,10 +6,21 @@
 </head>
 <body>
 <!--把jQuery库引进来-->
-<script type="text/javascript" src="/js/jQuery-1.0.0.js"></script>
+<script type="text/javascript" src="js/jQuery-1.0.0.js"></script><!--放哪里都行-->
+<script type="text/javascript">
+    $(function () {
+        $("#username").focus(function () {
+            console.log("onfocus!!!")
+        })
+        $("#btn").click(function () {
+            $("#mydiv").html("hello")
+        })
+    })
+</script>
 用户名：<input type="text" id="username">
-<button id="btn" onclick="$(function() {
-  $('#username')
-})">提交</button>
+<button id="btn" >提交</button><!--onclick="$('#username').val('zhangSan')"--> <!--可以在标签内使用-->
+<div id="mydiv"></div>
+
+
 </body>
 </html>
