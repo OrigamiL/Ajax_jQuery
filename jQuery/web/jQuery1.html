@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var btn = document.getElementById("btn")
+        console.log("1="+btn.value)
+        var btn1 = $(btn)
+        console.log("2="+btn1.val())
+        var btn2 = $("#btn")
+        console.log("3=" + btn2.val());
+    })
+</script>
+<button id="btn" value="1">按钮</button>
+</body>
+</html>

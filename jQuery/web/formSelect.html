@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function () {
+        var $text = $(":text");
+        for (var i = 0; i < $text.length; i++) {
+            //console.log(i)
+            console.log($text[i].value)
+        }
+    })
+</script>
+<div>
+    <input type="text" value="12345"/><br>
+    <input type="text" value="上山打老虎"/>
+</div>
+</body>
+</html>

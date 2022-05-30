@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello jQuery</title>
+</head>
+<body>
+
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    /*
+        1.$(document) $是jQuery中的函数名称 document是函数的参数 作用是document对象变成jQuery函数库可以使用的对象
+        2.ready是jQuery中的函数 类似于onload  $(document).ready(function(){})可以简写成$(function(){});
+        3.function()自定义表示ready后要执行的功能
+    * */
+    /*$(document).ready(function () {
+        alert("hello jQuery!")
+    })*/
+    /*
+        dom对象，使用javascript语法创建的对象就是dom对象，也就是js对象
+        jQuery对象 使用jQuery语法表示的对象叫做jQuery对象 jQuery对象都是数组
+        例如 var jObj = $("#txt1") jObj就是使用jQuery语法表示的对象 他是一个数组，现在数组就只有一个值
+        两类对象是可以相互转换的
+        dom对象转化为jQuery对象：$(dom对象)
+        jQuery对象转化为dom对象 从数组中获取第一个对象，第一个对象就是dom对象使用[0]或者get(0)
+    * */
+/*    $(function () {
+        alert("hello jQuery")
+    })*/
+    var btn
+    $(function () {
+        btn = $("#btn")
+        console.log(btn[0]);
+        console.log(btn.get(0));
+    })
+</script>
+<button id="btn">按钮</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算平方</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            /*var resultE = $("#result")
+            var result = resultE.val()*resultE.val()
+            resultE.val(result)*/
+            var obj = $("#result")[0]
+            var num = obj.value
+            obj.value = num*num
+        })
+    })
+</script>
+<input type="button" id="btn" value="计算平方"/><br>
+<input type="text" id="result" value="输入整数"/>
+</body>
+</html>

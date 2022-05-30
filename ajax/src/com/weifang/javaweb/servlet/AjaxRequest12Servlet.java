@@ -41,7 +41,7 @@ public class AjaxRequest12Servlet extends HttpServlet {
 
     private void getCity(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/json");
         PrintWriter out = response.getWriter();
         String pcode = request.getParameter("province");
         Connection conn = null;
@@ -100,7 +100,7 @@ public class AjaxRequest12Servlet extends HttpServlet {
 
     protected void getProvince(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/json");
         PrintWriter out = response.getWriter();
         Connection conn = null;
         PreparedStatement ps = null;
