@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    //语法：$(.each(循环的内容，处理函数))
+    //处理函数：function(index,element)  index:循环的索引 element 数组中的成员
+    var arr = [1,2,4,5]
+    var json = {"name":"张三","password":"124"}
+    $.each(arr,function (index, element) {
+        console.log(element,index);       //循环数组 index是下标 element是值
+    })
+    $.each(json,function (index, element) {
+        console.log(element,index)       //循环json  index是name password   element是"张三" "124"
+    })
+    $(function () {
+        var $text = $(":text");
+        $.each($text,function (index,element) {
+            console.log(index,element.value) //element是dom对象
+        })
+    })
+
+</script>
+<input type="text" value="张三"/>
+<input type="text" value="李四"/>
+<input type="text" value="王五"/>
+</body>
+</html>

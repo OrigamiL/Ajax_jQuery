@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>remove empty append html each</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript" >
+    $(function () {
+        $("#btn1").click(function () {
+            $("select").remove()//删除父和子对象
+        })
+        $("#btn2").click(function () {
+            $("select").empty()//删除子对象
+        })
+        $("#btn3").click(function () {
+            $("select").append("    <option value=\"4\">4</option>")//追加选择
+            $("#div2").append("<button>按钮</button>")
+        })
+
+    })
+</script>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<button id="btn3">按钮3</button>
+<select id="select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<div id="div2"></div>
+</body>
+</html>

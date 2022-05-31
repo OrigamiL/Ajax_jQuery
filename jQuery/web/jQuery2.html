@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>给dom对象绑定事件</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("button").click(function () {
+            console.log("按钮12按下")
+        })
+        $("#btn3").click(function () {
+            console.log("按钮3按下");
+        })
+    })
+</script>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<input  id="btn3" type="button" value="按钮3"/>
+</body>
+</html>

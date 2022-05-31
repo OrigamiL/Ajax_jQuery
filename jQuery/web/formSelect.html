@@ -9,15 +9,28 @@
 <script type="text/javascript">
     $(function () {
         var $text = $(":text");
-        for (var i = 0; i < $text.length; i++) {
+        /*for (var i = 0; i < $text.length; i++) {
             //console.log(i)
             console.log($text[i].value)
-        }
+        }*/
+        /*
+            过滤器 要和选择器一起使用
+        */
+        console.log("first="+$(":text:first").val());
+        console.log("last="+$(":text:last").val());
+        console.log($("input:last").val())
+        console.log("index[2].value="+$("input:eq(2)").val());
+        console.log("index[lt1].value="+$("input:lt(1)").val());
+        console.log("index[gt1].value="+$("input:gt(1)").val());
+        $.each($text,function (index,domEle) {
+            console.log(domEle.value)
+        })
     })
 </script>
 <div>
     <input type="text" value="12345"/><br>
-    <input type="text" value="上山打老虎"/>
+    <input type="text" value="上山打老虎"/><br>
+    <input type="text" value="老虎打不着"/>
 </div>
 </body>
 </html>

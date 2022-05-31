@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    /*
+        $.ajax():jQuery中实现ajax的核心函数
+        $.post():使用post方式做ajax请求
+        $.get():使用get方式做ajax请求
+    * */
+    $(function () {
+        $("#btn").click(function () {
+            $.ajax({
+                // async:true,
+                // contentType:"application/json",
+                data:{
+                    "aaa":$("#user").val()
+                },
+                dataType: "json",
+                /*error:function () {
+                    alert("error!")
+                },*/
+                success: function (data) {
+                    $.each(data,function (index, element) {
+                        console.log(index,element)
+                    })
+                },
+                url: "/jQuery/request1",
+                //type:"GET"
+            })
+        })
+    })
+</script>
+<input id="user" type="text" name="aaa"/>
+<button id="btn">按钮</button>
+</body>
+</html>

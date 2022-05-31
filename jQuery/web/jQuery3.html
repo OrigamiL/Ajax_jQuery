@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单属性过滤器</title>
+    <!--
+        根据表单中dom对象的状态情况，定位dom对象
+        启用状态 enabled    $(":text:enabled")
+        不可用状态 disabled
+        选择状态 checked   如：radio checkbox
+        选择指定下拉列表的被选中元素   选择器>option:selected
+    -->
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btn").click(function () {
+            /*$("#select>option:selected").each(function (index, elmE) {
+                console.log(elmE.value)
+            })*/
+            var $select = $("#select>option:selected");
+            for (var i = 0; i < $select.length; i++) {
+                console.log($select[i].value)
+            }
+            var $text = $(":text:enabled");
+            /*for (var i = 0; i < $text.length; i++) {
+                console.log("???")
+                $text[i].value = "hello"
+            }*/
+            $text.val("hello")
+            var $img = $("img");
+            var attr = $img.attr("src");//获取指定的属性值
+            console.log(attr)
+            $img.attr("src","img/img1.png")//给属性复赋值
+            var $div1 = $(".div1");
+            console.log($div1.text())
+            $div1.text("111")
+        })
+    })
+</script>
+<select id="select" >
+    <option value=bike>骑行</option>
+    <option value=basketball>篮球</option>
+    <option value=sing>唱歌</option>
+</select>
+<button id="btn">确定</button>
+<input type="text" value="1"/>
+<input type="text" value="2" disabled/>
+<input type="text" value="3"/>
+<img id="img" src="img/img.png"/>
+<div class="div1">aaaaaa</div>
+<div class="div1">bbbbbb</div>
+</body>
+</html>
