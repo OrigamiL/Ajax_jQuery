@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习jQuery-Ajax</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btn").on("click",function () {
+            $.ajax({
+                url : "request2",//跟url:"/jQuery/request2", 相同   前面加/  参考路径为根路径http://localhost:8080/   不加/参考路径为当前路径http://localhost:8080/jQuery/
+                data : {"name":$("#user").val()},
+                dataType : "json",
+                success : function (data) {
+                    console.log(data.name)
+                }
+            })
+        })
+    })
+</script>
+<div>
+    用户名：<input type="text" id="user" name="username">
+    <button id="btn">提交</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Cooperation:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Cooperation_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Cooperation/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Cooperation" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

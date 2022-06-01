@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>省市联动</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function () {
+        var $provinceSelector = $("#provinceSelector");
+        $.ajax({
+            url : "/cooperation/query",
+            data : {"province":null},
+            dataType : "json",
+            success : function (jsonStr) {
+                $.each(jsonStr,function (index, element) {
+                    $provinceSelector.append("<option value=\""+element.code+"\">"+element.name+"</option>")
+                })
+            }
+        })
+        $provinceSelector.on("change",function () {
+            $.ajax({
+                url : "/cooperation/query",
+                data : {"province":$("#provinceSelector>option:selected").val()},
+                dataType : "json",
+                success : function (jsonStr) {
+                    var $citySelector = $("#citySelector");
+                    $citySelector.empty()
+                    $citySelector.append("<option value=\"0\">--请选择城市--</option>")
+                    $.each(jsonStr,function (index, element) {
+                        $citySelector.append("<option value=\""+element.code+"\">"+element.name+"</option>")
+                    })
+                }
+            })
+        })
+    })
+</script>
+<div>
+    <table>
+        <tr>
+            <td>省份</td>
+            <td>
+                <select id="provinceSelector">
+                    <option value="0">--请选择省份--</option>
+                </select>
+            </td>
+            <!--<td><input type="button" id="pBtn" value="确定"/></td>-->
+        </tr>
+        <tr>
+            <td>城市</td>
+            <td>
+                <select id="citySelector">
+                    <option value="0">--请选择城市--</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
